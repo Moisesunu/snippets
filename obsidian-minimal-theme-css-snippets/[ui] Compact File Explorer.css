@@ -1,0 +1,97 @@
+/*
+    Compact File Explorer Minimal
+    This is tweak of the file explorer that avoids messing with the chevrons, to avoid the
+	janky problematic padding calculations issue
+
+    https://github.com/replete/obsidian-minimal-theme-css-snippets
+*/
+
+[data-type=file-explorer] {
+
+	.nav-files-container {
+		/* compact file explorer */
+		padding: 0;
+		margin-left: -12px;
+
+		.nav-file-title,
+		.nav-folder-title {
+			padding-top:3px;
+			padding-bottom:3px;
+		}
+
+		/* hide root chevrons */
+		> div > .nav-folder {
+			> .mod-collapsible .collapse-icon {
+				visibility:hidden;
+			}
+		}
+
+		/* collapse chevrons more subtle*/
+		.collapse-icon {
+			opacity:0.4;
+			transition: opacity 0.2s ease-in-out;
+		}
+		.nav-folder:not(.is-collapsed) > .mod-collapsible > .collapse-icon {
+			opacity:1;
+		}
+
+		/* Make some folders appear more subtle */
+		> div > .nav-folder.is-collapsed:has(> [data-path=Assets]),
+		.nav-folder:not(:not(.is-collapsed)):has(> [data-path*="/attachments"]) {
+			opacity:0.6;
+		}
+
+		/* Folder Count plugin count appear on hover and more subtle */
+		.nav-folder-title[data-count]::after {
+			color: var(--tx3, var(--text-faint));
+			position:absolute;
+			right:0;
+			transform: translate(0, 1px);
+			opacity:0;
+			transition: .2s opacity ease-in;
+			padding-right:3px;
+		}
+		&:hover {
+			.nav-folder-title[data-count]::after {
+				opacity:1;
+			}
+		}
+
+		/* remove border-radius */
+		.nav-file-title,
+		.nav-folder-title {
+			border-radius:0;
+		}
+
+		/* style file tag */
+		.nav-file-tag {
+			/* Here be dragons! */
+			margin-left:0;
+			margin-right:3px;
+			text-shadow: 0.5px 0 0 black;
+			text-indent:-5px;
+			overflow:visible;
+			font-weight:bold;
+			line-height:10px;
+			width:13px;
+			height:13px;
+			font-size: 11px;
+			letter-spacing:-0.5px;
+			vertical-align:middle;
+			text-rendering: geometricPrecision;
+			font-family: "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+			border-radius:0;
+
+			/* suffix file tag styling */
+			.nav-file-title-content + & {
+				margin-left: .5rem;
+				letter-spacing: 0;
+			}
+		}
+
+		/* Hide file tag when an icon is set */
+		.nav-file:has(.nav-file-tag):has(.iconize-icon) {
+			.nav-file-tag {display:none}
+		}
+	}
+}
