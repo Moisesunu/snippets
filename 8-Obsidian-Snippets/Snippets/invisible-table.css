@@ -1,0 +1,16 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Makes table lines invisible and hides the table header. */
+/* Meant for putting an image in each table cell to get image grid. */
+
+.markdown-preview-view.invisible-table th,
+.markdown-preview-view.invisible-table td {
+    border: 0;
+}
+
+.markdown-preview-view.invisible-table th {
+    visibility: hidden;
+}

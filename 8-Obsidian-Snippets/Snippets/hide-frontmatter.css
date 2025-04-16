@@ -1,0 +1,10 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Frontmatter/metadata container is hidden in preview mode */
+
+.frontmatter-container {
+  display: none;
+}

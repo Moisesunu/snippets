@@ -1,0 +1,15 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Adjusts the fonts weight value for https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/S%20-%20Checkboxes.css. */
+/* Works with the snippet's version from 2021-12-15 */
+/* Text for the checkbox is no longer in bold font. Edit the number to adjust how bold the font is. */
+
+.markdown-source-view.mod-cm6 .task-list-item-checkbox:not([data-task=' ']) + span,
+.markdown-source-view.mod-cm6 .task-list-item-checkbox:not([data-task=' ']) + span + span,
+.markdown-preview-view ul > li.task-list-item.is-checked, 
+.markdown-preview-view ol > li.task-list-item.is-checked {
+    font-weight: 400 !important;
+}

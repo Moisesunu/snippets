@@ -1,0 +1,14 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* [[Links]] and [links]() have no underscore in preview mode */
+
+a.internal-link {
+    text-decoration: none !important;
+}
+
+a.external-link {
+    text-decoration: none !important;
+}

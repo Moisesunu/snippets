@@ -1,0 +1,19 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* ==Highlight== in preview mode has colored text and no background fill. */
+/* Change the color codes to adjust the text color in light and dark mode. */
+
+.markdown-preview-view  {
+  --text-highlight-bg: none;
+}
+
+.theme-dark .markdown-preview-view mark {
+  color: #fbc959;
+}
+
+.theme-light .markdown-preview-view mark {
+  color: #d88d00;
+}

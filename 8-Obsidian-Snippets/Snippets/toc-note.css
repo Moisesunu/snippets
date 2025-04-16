@@ -1,0 +1,65 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Add cssclass: toc-note in frontmatter to apply the snippet to a specific note.  */
+/* Modifies the style of headings and unordered list in the default Obsidian theme */
+/* for the purpose of putting in the side panel as a TOC. */
+
+.markdown-preview-view.toc-note h1 {
+  font-size:1em !important;
+  font-weight: 800;
+  padding-left: 0em;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-edit-view.toc-note h1 {
+  font-size:1em !important;
+  font-weight: 800;
+  padding-left: 0em;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+
+.markdown-preview-view.toc-note h2 {
+  font-size:0.9em !important;
+  padding-left: 0em;
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-edit-view.toc-note h2 {
+  font-size:0.9em !important;
+  font-weight: 600;
+  padding-left: 0em;
+  margin-top: 0.5em;
+  margin-bottom: 0.8em;
+}
+
+.markdown-preview-view.toc-note h3 {
+  font-size:0.9em !important;
+  font-weight: 400;
+  padding-left: 0em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-edit-view.toc-note h3 {
+  font-size:0.9em !important;
+  font-weight: 400;
+  padding-left: 0em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.toc-note ul {
+  list-style-type: none;
+  padding-left: 0em;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+  margin-bottom: 0.6em;
+}

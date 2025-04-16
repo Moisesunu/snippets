@@ -1,0 +1,11 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Hides the little link symbol at the end of an external link. */
+
+.external-link {
+    background-image: none;
+    padding-right: 0px;
+}

@@ -1,0 +1,32 @@
+/* --------------------------------------------------- */
+/* https://codeberg.org/apogorzelska/Obsidian-Snippets */
+/* --------------------------------------------------- */
+
+
+/* Modifies the look of Full Calendar plugin: */
+/* https://github.com/davish/obsidian-full-calendar */
+/* for the purpose of putting it in the side panel. */
+
+.fc {
+    font-size: 0.95em !important;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.2em !important;
+}
+
+.fc .fc-button {
+	font-size: 0.85em !important;
+}
+
+.fc .fc-button .fc-icon {
+	font-size: 1em !important;
+}
+
+ .fc .fc-dayGridMonth-button { 
+	 display: none !important; 
+ } 
+
+ .fc .fc-timeGridWeek-button {
+	display: none !important;
+}
