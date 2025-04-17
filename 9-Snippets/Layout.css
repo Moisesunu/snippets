@@ -1,0 +1,1105 @@
+@charset "UTF-8";
+/* @settings
+name: Card Layout - Accent Colors
+id: layout-accent-colors
+settings:
+    - 
+        id: theme-color
+        title: Theme Color
+        type: class-select
+        allowEmpty: false
+        default: theme-daisy-blue
+        options:
+            -
+                label: Custom
+                value: theme-custom
+
+            -
+                label: Blue Gray
+                value: theme-blue-gray
+            
+            -
+                label: Dark Gray
+                value: theme-dark-gray
+
+            -
+                label: Daisy Blue
+                value: theme-daisy-blue
+            
+            -
+                label: Orange Jist
+                value: theme-orange-jist
+
+            -
+                label: Palenight
+                value: theme-palenight
+
+            -
+                label: Plum
+                value: theme-plum
+
+            -
+                label: Red Sky
+                value: theme-red-sky
+            
+            -
+                label: Silvery
+                value: theme-silvery
+
+            -
+                label: Spruce
+                value: theme-spruce
+
+            -
+                label: Tea Teal
+                value: theme-tea-teal
+            
+            -
+                label: Violette
+                value: theme-violette
+
+            -
+                label: Yellowish
+                value: theme-yellowish
+            
+    -
+        id: hsl-accent
+        title: 'Select the custom user interface accent color'
+        type: variable-themed-color
+        opacity: true
+        format: hsl-split
+        description: User interface accent
+        default-dark: '#007AFF'
+        default-light: '#5dcbc3'
+    
+    - 
+        id: accent-typ
+        title: 'Select the custom typography accent color'
+        type: variable-themed-color
+        opacity: true
+        format: hsl-split
+        description: Content accent
+        default-dark: '#90D997'
+        default-light: '#304f50'
+    -
+        id: layout-card-shadows
+        title: Enable shadows
+        type: class-toggle
+
+*/
+
+/* CSS Variables for Theme Colors */
+:root {
+  /* Basic Color Palette */
+  --darkest-blue: #18222b;
+  --mid-blue: #273341;
+  --light-blue: #303f51;
+  --dark-blue: #1d2833;
+  --soft-dark-blue: #2c3a4a;
+  --ocean-blue: #2c4f64;
+  --bright-blue: #5dcbc3;
+  --percy-blue: #84dca1;
+  --bright-green: #b9e678;
+  --soft-yellow: #ffd580;
+  --bright-yellow: #f8c260;
+  --bright-orange: #ffa161;
+  --bright-red: #ff695d;
+  --bright-purple: #d689e3;
+  --washed-blue: #74859a;
+  --almost-white: #f7f5e9;
+  --soft-white: #eeead1;
+  --basic-gray: #cfd1d1;
+  --blue-gray: #c4d1d1;
+
+  /* Radius Variables */
+  --radiusL: 14px;
+  --radiusS: 10px;
+}
+
+/* Bookmark Icon */
+.view-action.mod-bookmarked {
+  --icon-color: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) + 0%),
+    0.4
+  );
+}
+
+/* Line Height */
+.cm-line {
+/*  line-height: 1.4em !important;*/
+}
+
+/* Theme Specific Color Variables */
+body.theme-daisy-blue,
+body.theme-red-sky,
+body.theme-silvery,
+body.theme-violette,
+body.theme-tea-teal,
+body.theme-orange-jist,
+body.theme-yellowish,
+body.theme-custom {
+  --text: 50% !important;
+}
+
+body.theme-daisy-blue {
+  --accent-h: 210 !important;
+  --accent-s: 93% !important;
+  --accent-l: 40% !important;
+  --accent-a: 90% !important;
+  --typ-accent-h: 210 !important;
+  --typ-accent-s: 93% !important;
+  --typ-accent-l: 67% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(210, 93%, 67%, 1);
+}
+
+body.theme-dark-gray {
+  --accent-h: 212 !important;
+  --accent-s: 45% !important;
+  --accent-l: 42% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 210 !important;
+  --typ-accent-s: 37% !important;
+  --typ-accent-l: 59% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsl(210, 37%, 59%);
+  --background-primary-alt: hsl(212, 15%, 20%);
+  --background-primary: hsl(212, 15%, 15%);
+}
+
+body.theme-spruce {
+  --accent-h: 175 !important;
+  --accent-s: 49% !important;
+  --accent-l: 37% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 175 !important;
+  --typ-accent-s: 49% !important;
+  --typ-accent-l: 55% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(175, 49%, 55%, 1);
+}
+
+body.theme-red-sky {
+  --accent-h: 0 !important; /* Red hue */
+  --accent-s: 43% !important; /* Saturation similar to the silvery theme for a cohesive look */
+  --accent-l: 42% !important; /* Lightness matched to maintain the desired vibe */
+  --accent-a: 100% !important; /* Full opacity for a solid color presentation */
+  --typ-accent-h: 0 !important; /* Matching hue for typography */
+  --typ-accent-s: 43% !important; /* Consistent saturation for vibrancy */
+  --typ-accent-l: 52% !important; /* Slightly brighter for readability against darker backgrounds */
+  --typ-accent-a: 100% !important; /* Ensuring non-transparent text */
+  --typ-accent: hsla(0, 43%, 52%, 1); /* Computed typography color */
+}
+
+body.theme-silvery {
+  --accent-h: 215 !important;
+  --accent-s: 43% !important;
+  --accent-l: 42% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 215 !important;
+  --typ-accent-s: 43% !important;
+  --typ-accent-l: 52% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(215, 43%, 52%, 1);
+  --text: 20% !important;
+}
+
+/* Light theme colors */
+body.theme-violette {
+  --accent-h: 280 !important; /* Purple hue */
+  --accent-s: 43% !important; /* Keeping the saturation uniform across themes */
+  --accent-l: 42% !important; /* Lightness to preserve the dark theme essence */
+  --accent-a: 100% !important; /* Ensuring solid color presentation */
+  --typ-accent-h: 280 !important; /* Hue for typography to match the accent */
+  --typ-accent-s: 43% !important; /* Saturation maintained for consistency */
+  --typ-accent-l: 52% !important; /* Lighter typography for better contrast */
+  --typ-accent-a: 100% !important; /* Non-transparent text */
+  --typ-accent: hsla(280, 43%, 52%, 1); /* Final typography color */
+}
+
+/* Dark theme colors */
+body.theme-violette.theme-dark {
+  --accent-h: 255 !important;
+  --accent-s: 73% !important;
+  --accent-l: 48% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 255 !important;
+  --typ-accent-s: 73% !important;
+  --typ-accent-l: 68% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(255, 73%, 68%, 1);
+}
+
+body.theme-yellowish {
+  --accent-h: 60 !important; /* Yellow hue */
+  --accent-s: 43% !important; /* Saturation to match the silvery theme's feel */
+  --accent-l: 42% !important; /* Keeping the lightness in line with others */
+  --accent-a: 100% !important; /* Full opacity for clarity */
+  --typ-accent-h: 60 !important; /* Coherent hue for typography */
+  --typ-accent-s: 43% !important; /* Saturation consistent with the theme's style */
+  --typ-accent-l: 52% !important; /* Brighter text for legibility */
+  --typ-accent-a: 100% !important; /* Solid colors for text */
+  --typ-accent: hsla(60, 43%, 52%, 1); /* Calculated color for typography */
+}
+
+body.theme-yellowish.theme-dark {
+  --accent-h: 47 !important;
+  --accent-s: 85% !important;
+  --accent-l: 40% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 47 !important;
+  --typ-accent-s: 85% !important;
+  --typ-accent-l: 50% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(47, 85%, 50%, 1);
+}
+
+body.theme-orange-jist {
+  --accent-h: 30 !important;
+  --accent-s: 70% !important;
+  --accent-l: 35% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 30 !important;
+  --typ-accent-s: 70% !important;
+  --typ-accent-l: 55% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(33, 70%, 55%, 1);
+}
+
+body.theme-plum {
+  --accent-h: 274 !important;
+  --accent-s: 59% !important;
+  --accent-l: 37% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 274 !important;
+  --typ-accent-s: 59% !important;
+  --typ-accent-l: 52% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsl(274, 59%, 52%);
+}
+
+body.theme-palenight {
+  --accent-h: 229 !important;
+  --accent-s: 20% !important;
+  --accent-l: 44% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 0;
+  --typ-accent-s: 54%;
+  --typ-accent-l: 58%;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsl(0, 54%, 58%);
+  --text-selection: hsl(0, 64%, 32%);
+}
+
+body.theme-tea-teal {
+  --accent-h: 150 !important;
+  --accent-s: 43% !important;
+  --accent-l: 42% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 150 !important;
+  --typ-accent-s: 43% !important;
+  --typ-accent-l: 52% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(150, 43%, 52%, 1);
+}
+
+body.theme-blue-gray {
+  --accent-h: 232 !important;
+  --accent-s: 23% !important;
+  --accent-l: 43% !important;
+  --accent-a: 100% !important;
+  --typ-accent-h: 232 !important;
+  --typ-accent-s: 43% !important;
+  --typ-accent-l: 50% !important;
+  --typ-accent-a: 100% !important;
+  --typ-accent: hsla(232, 43%, 50%, 100%);
+}
+
+body.theme-custom {
+  --accent-h: var(--hsl-accent-h) !important;
+  --accent-s: var(--hsl-accent-s) !important;
+  --accent-l: var(--hsl-accent-l) !important;
+  --accent-a: var(--hsl-accent-a) !important;
+  --typ-accent-h: var(--accent-typ-h) !important;
+  --typ-accent-s: var(--accent-typ-s) !important;
+  --typ-accent-l: var(--accent-typ-l) !important;
+  --typ-accent-a: var(--accent-typ-a) !important;
+  --typ-accent: hsla(
+    var(--typ-accent-h),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  ) !important;
+}
+
+/* Dark Theme Styles */
+.theme-dark {
+  --background-modifier-border: red;
+  /* Surface Colors */
+  /* --background-primary: hsla(calc(var(--accent-h)), calc(var(--accent-s)), calc(var(--accent-l) - 30%), var(--accent-a));
+    --background-primary-alt: hsla(calc(var(--accent-h)), calc(var(--accent-s)), calc(var(--accent-l) - 20%), var(--accent-a));
+    --background-secondary: var(--background-primary);
+    --background-secondary-alt: hsla(calc(var(--accent-h)), calc(var(--accent-s)), calc(var(--accent-l)), var(--accent-a));
+    --shadow: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 25%)); */
+
+  --background-primary: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) - 30%),
+    var(--accent-a)
+  );
+  --background-primary-alt: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) - 20%),
+    var(--accent-a)
+  );
+  --background-secondary: var(--background-primary);
+  --background-secondary-alt: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) - 5%),
+    var(--accent-a)
+  );
+  --shadow: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 10%),
+    calc(var(--accent-l) - 30%)
+  );
+
+  /* Text Foreground Colors */
+  --text-normal: hsla(
+    calc(var(--typ-accent-h) + 10),
+    var(--typ-accent-s),
+    calc(var(--typ-accent-l) + 10%),
+    1
+  );
+  --text-muted: hsla(
+    calc(var(--typ-accent-h) + 10),
+    var(--typ-accent-s),
+    calc(var(--typ-accent-l) - 0%),
+    1
+  );
+  --text-faint: hsla(
+    calc(var(--typ-accent-h) + 10),
+    var(--typ-accent-s),
+    calc(var(--typ-accent-l) - 5%),
+    1
+  );
+  --text-on-accent: hsla(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 30%),
+    1
+  );
+  --text-error: var(--bright-red);
+  --text-success: var(--bright-green);
+  /* --tab-container-background: var(--bright-red); */
+
+  /* Icon Colors */
+  --icons: hsla(
+    var(--typ-accent-h),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  );
+
+  --icon60: hsla(
+    calc(var(--typ-accent-h) + 60),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  );
+  --icon120: hsla(
+    calc(var(--typ-accent-h) + 120),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  );
+  --icon180: hsla(
+    calc(var(--typ-accent-h) + 180),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  );
+
+  --icon220: hsla(
+    calc(var(--typ-accent-h) + 220),
+    var(--typ-accent-s),
+    var(--typ-accent-l),
+    1
+  );
+
+  /* Modifier Colors */
+  --background-modifier-hover: var(--background-primary-alt);
+  --background-modifier-active-hover: var(--dark-blue);
+  --background-modifier-border: none;
+  --background-modifier-border-hover: hsla(
+    calc(var(--accent-h) + 10),
+    var(--accent-s),
+    calc(var(--accent-l) - 20%),
+    1
+  );
+  --background-modifier-border-focus: none;
+  --color-accent: hsla(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 30%),
+    1
+  );
+
+  --interactive-accent: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) - 15%),
+    1
+  );
+  --text-on-accent: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 20%),
+  1
+);
+
+  --background-modifier-error: var(--bright-red);
+  --background-modifier-success: var(--bright-green);
+  --background-modifier-message: var(--washed-blue);
+  --background-modifier-form-field: var(--light-blue);
+
+  /* Tab Styles */
+  --tab-radius: var(--radiusS);
+  --tab-radius-active: var(--radiusS);
+  --tab-curve: none;
+  /* --tab-text-color: hsla(calc(var(--typ-accent-h) + 180), var(--typ-accent-s), calc(var(--typ-accent-l) - 0%), 1) !important; */
+  --tab-font-size: 1em;
+
+  /* Non active tabs */
+  --tab-text-color: hsla(
+    calc(var(--typ-accent-h) + 0),
+    var(--typ-accent-s),
+    calc(var(--typ-accent-l) - 0%),
+    1
+  );
+  --tab-text-color-focused: hsla(
+    calc(var(--typ-accent-h) + 0),
+    var(--typ-accent-s),
+    calc(var(--typ-accent-l) - 0%),
+    1
+  );
+
+  /* Active Tabs */
+  /* Active tab but Obsidian not focused */
+  --tab-text-color-active: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 0%),
+    1
+  );
+
+  --tab-background-active: var(--background-primary);
+  
+  --tab-text-color-focused-active-current: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 20%),
+    1
+  );
+
+  /* Divider Color */
+  --divider-color: var(--background-primary-alt);
+
+  /* Miscellaneous */
+  --file-header-active: var(--almost-white);
+  --hr-color: var(--percy-blue);
+
+  --icon-color: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) + 10%),
+    1
+  );
+  --icon-opacity-active: 1;
+  --icon-color-hover: orange;
+  --icon-color-active: blue;
+  --icon-color-focused: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 20%),
+    1
+  );
+
+  --ribbon-background: var(--background-primary-alt);
+  --nav-collapse-icon-color: var(--percy-blue);
+  --slider-track-background: var(--ocean-blue);
+
+  /* Scrollbar Styles */
+  /* --scrollbar-thumb-bg: hsla(
+    calc(var(--accent-h)),
+    calc(var(--accent-s)),
+    calc(var(--accent-l) - 5%),
+    var(--accent-a)
+  );
+  --scrollbar-active-thumb-bg: hsla(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 20%),
+    1
+  ); */
+}
+
+/* Hover line indicator */
+/*.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, :has(.mk-note-footer)),
+.workspace-leaf-content[data-type="markdown"]:not(:has(.document-search-container)) .markdown-preview-sizer>div:not([class], :has(.collapse-indicator, .mk-header)) {
+    position: relative;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, :has(.mk-note-footer, .collapse-indicator))::after,
+.workspace-leaf-content[data-type="markdown"]:not(:has(.document-search-container)) .markdown-preview-sizer>div:is(.el-ul, .el-ol)::after,
+.workspace-leaf-content[data-type="markdown"]:not(:has(.document-search-container)) .markdown-preview-sizer>div:not([class], :has(.collapse-indicator, .mk-header))::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 3px;
+    width: 4px;
+    height: 0;
+    background: hsla(
+      calc(var(--typ-accent-h) + 180),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 10%),
+      1
+    );
+    opacity: 1;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent):hover::after,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, :has(.mk-note-footer, .collapse-indicator)):hover::after,
+.workspace-leaf-content[data-type="markdown"]:not(:has(.document-search-container)) .markdown-preview-sizer>div:is(.el-ul, .el-ol):hover::after,
+.workspace-leaf-content[data-type="markdown"]:not(:has(.document-search-container)) .markdown-preview-sizer>div:not([class], :has(.collapse-indicator, .mk-header)):hover::after {
+    height: calc(100% - 6px);
+}*/
+
+.horizontal-main-container {
+  margin-bottom: 20px !important;
+}
+
+
+
+/* ====== status bar====== */
+
+body {
+    --status-bar-background: transparent;
+    --status-bar-border-color: transparent;
+    --status-bar-border-width: 0;
+}
+
+.status-bar {
+    padding: 0px 16px 0 0;
+    width: 100%;
+    min-height: 16px;
+    padding-bottom: 2px;
+        display: flex;
+    justify-content: center;
+}
+
+/* Status Bar */
+.status-bar {
+  font-size: 1.1em;
+  color: hsla(
+    calc(var(--typ-accent-h) + 0),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 10%),
+    1
+  );
+  background-color: var(--background-primary-alt);
+/*  border: 2px solid var(--background-primary);*/
+/*  border-radius: var(--radiusL);*/
+  text-shadow: 2px 2px 2px black;
+/*  margin-right: 2px;*/
+}
+
+.status-bar-item.mod-clickable:hover {
+    color: yellowgreen;
+}
+
+.status-bar-item {
+    height: 24px;
+}
+
+
+/* For TickTick Page */
+.ticktick .inline-title { 
+  display: none; 
+}
+
+.ticktick {
+  :is(&.markdown-preview-view, & > .cm-editor > .cm-scroller)::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+  }
+  border: 10px solid var(--background-primary);
+}
+
+
+.markdown-preview-view {
+  padding: 0;
+  border-radius: 10px;
+  background-color: var(--background-primary) !important;
+}
+
+.view-header-title-parent {
+  color: hsla(
+    calc(var(--typ-accent-h) + 0),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    1
+  ) !important;
+}
+
+.view-header-title {
+  color: hsla(
+    calc(var(--typ-accent-h) + 180),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    1
+  ) !important;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.view-header-breadcrumb-separator {
+  color: hsla(
+    calc(var(--typ-accent-h) + 180),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    1
+  ) !important;
+}
+
+/* Title */
+.inline-title {
+  color: hsla(
+    calc(var(--typ-accent-h) + 30),
+    calc(var(--typ-accent-s) + 20%),
+    calc(var(--typ-accent-l) + 10%),
+    1
+  ) !important;
+  text-shadow: 2px 2px 2px black;
+}
+
+
+/* Active icons */
+.mod-right-split .workspace-tab-header .workspace-tab-header-inner-icon,
+.mod-left-split .workspace-tab-header .workspace-tab-header-inner-icon {
+  border-bottom: 4px solid var(--background-primary);
+  padding-bottom: 4px;
+}
+.mod-right-split
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-icon,
+.mod-left-split
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-icon {
+  border-bottom: 4px solid var(--typ-accent);
+  padding-bottom: 4px;
+}
+
+/* Scrollbar */
+/* ::-webkit-scrollbar-track {
+  background-color: hsla(
+    calc(var(--accent-h) + 0),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) - 20%),
+    1
+  ) !important;
+  border: 2px solid var(--background-primary) !important;
+} */
+
+/* ::-webkit-scrollbar {
+  width: 0.7em !important;
+  border: 2px solid var(--background-primary) !important; 
+} */
+
+/* Workspace tab text */
+.workspace-tab-header-inner-title {
+  /* color: hsla(calc(var(--typ-accent-h) + 180), var(--typ-accent-s), var(--typ-accent-l), 1); */
+}
+
+
+/* From SailKite on Discord */
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb:hover {
+  visibility: visible;
+}
+
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb,
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb:hover,
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb:active {
+    background-image: repeating-linear-gradient(45deg, hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) - 10%),
+      1
+    ) 0px 10px, hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 10%),
+      1
+    ) 10px 20px);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Workspace Tab Header */
+.workspace .mod-root .workspace-tab-header.is-active {
+  /* border-left: 4px solid var(--background-primary);
+  border-right: 4px solid var(--background-primary); */
+  border-bottom: 4px solid hsla(
+    var(--typ-accent-h), 
+    var(--typ-accent-s), 
+    var(--typ-accent-l), 1);
+  margin-left: 1em;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.sidebar-toggle-button.mod-left {
+  background-color: var(--background-primary-alt);
+  height: var(--header-height);
+  padding-left: 2em;
+  padding-top: 1em;
+}
+
+/* Color for both left and right collapse icons */
+.sidebar-toggle-button svg {
+  color: hsla(
+    calc(var(--accent-h) + 90),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 30%),
+    1
+  ) !important;
+  width: 1.5em;
+  height: 1.5em;
+}
+/* Hover for both left and right collapse icons */
+.sidebar-toggle-button:hover svg {
+  color: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 40%),
+    calc(var(--accent-l) + 30%),
+    1
+  ) !important;
+  width: 2em;
+  height: 2em;
+}
+
+.sidebar-toggle-button.mod-right {
+  padding-right: 3em;
+}
+
+
+
+/* Titlebar Button Container */
+/* Windows controls */
+
+.titlebar-button-container.mod-right {
+  /* padding-right: 1.4em; */
+  top: 0.5em;
+  background-color: var(--background-primary-alt) !important;
+  color: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) + 20%),
+    1
+  );
+}
+
+.titlebar-button-container {
+  /* background-color: var(--background-primary-alt) !important; */
+  /* color: hsla(
+    calc(var(--accent-h) + 180),
+    calc(var(--accent-s) + 0%),
+    calc(var(--accent-l) + 20%),
+    1
+  ); */
+  /* padding-top: 0.8em !important; */
+  /* padding-right: 1.4em !important; */
+  /* padding-right: 1.4em; */
+}
+
+
+
+.titlebar-button.mod-minimize,
+.titlebar-button.mod-maximize,
+.titlebar-button.mod-close {
+  /* padding-right: 1.4em; */
+  /* padding-top: 0.8em; */
+
+}
+
+/* Both of these are required or the hover will be offset */
+.titlebar-button-container.mod-right,
+.workspace-tab-header-container::after {
+  padding-right: 20px;
+}
+
+.titlebar-button.mod-minimize:hover svg {
+  color: lightskyblue;
+}
+
+.titlebar-button.mod-minimize:hover {
+   background-color: var(--background-primary); 
+   border-radius: 10px;
+/*  width: 24px;*/
+/*  height: 24px;*/
+
+}
+
+.titlebar-button.mod-maximize:hover svg {
+  color: lime;
+}
+
+.titlebar-button.mod-maximize:hover {
+   background-color: var(--background-primary); 
+   border-radius: 10px;
+/*  width: 24px;*/
+/*  height: 24px;*/
+
+}
+
+.titlebar-button.mod-close:hover svg {
+  color: red;
+}
+
+.titlebar-button.mod-close:hover {
+   background-color: var(--background-primary); 
+   border-radius: 10px;
+/*  width: 24px;*/
+/*  height: 24px;*/
+
+}
+
+.titlebar-button-container svg {
+  color: hsla(
+    calc(var(--accent-h) + 20),
+    calc(var(--accent-s) + 20%),
+    calc(var(--accent-l) + 30%),
+    1
+  );
+  width: 16px;
+  height: 16px;
+}
+
+
+/* Left Side-bar Icons */
+.layout-card-shadows .side-dock-actions {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-dock-ribbon-action:nth-child(8n) {
+  --icon-color: rgb(var(--ctp-red)) !important;
+  color: rgb(var(--ctp-red)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 1) {
+  --icon-color: rgb(var(--ctp-maroon)) !important;
+  color: rgb(var(--ctp-maroon)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 2) {
+  --icon-color: rgb(var(--ctp-peach)) !important;
+  color: rgb(var(--ctp-peach)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 3) {
+  --icon-color: rgb(var(--ctp-yellow)) !important;
+  color: rgb(var(--ctp-yellow)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 4) {
+  --icon-color: rgb(var(--ctp-green)) !important;
+  color: rgb(var(--ctp-green)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 5) {
+  --icon-color: rgb(var(--ctp-teal)) !important;
+  color: rgb(var(--ctp-teal)) !important;
+
+}
+.side-dock-ribbon-action:nth-child(8n + 6) {
+  --icon-color: rgb(var(--ctp-sky)) !important;
+  color: rgb(var(--ctp-sky)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 7) {
+  --icon-color: rgb(var(--ctp-sapphire)) !important;
+  color: rgb(var(--ctp-sapphire)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 8) {
+  --icon-color: rgb(var(--ctp-blue)) !important;
+  color: rgb(var(--ctp-blue)) !important;
+}
+
+.side-dock-ribbon-action:nth-child(8n + 9) {
+  --icon-color: rgb(var(--ctp-lavender)) !important;
+  color: rgb(var(--ctp-lavender)) !important;
+}
+
+/* Right Top Icon Bar */
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split
+  > .workspace-tabs.mod-top.mod-top-right-space
+  > .workspace-tab-header-container {
+  padding-left: 1.5em;
+}
+
+/* Left Top Icon Bar */
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split
+  > .workspace-tabs.mod-top.mod-top-left-space
+  > .workspace-tab-header-container {
+  padding-left: 1.5em;
+}
+
+/* Hover Style for Workspace Tabs */
+.workspace-tabs:not(.mod-top) .workspace-tab-header-container {
+  height: 3px;
+  transition: height 200ms ease-in;
+
+  &:hover {
+    height: var(--header-height);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+
+.workspace-tab-container {
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  border-radius: var(--radiusL);
+}
+
+
+/* Layout Styles */
+.layout-card-shadows .workspace-tab-container {
+/*  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.3);*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-tab-container:not(.workspace-split.mod-horizontal.mod-right-split) {
+/*    margin-bottom: 30px;*/
+}
+
+.workspace-split.mod-horizontal.mod-right-split {
+  padding-right: 10px;
+  background-color: var(--background-primary-alt);
+}
+
+.workspace-tabs:is(.mod-top) .workspace-tab-header-container-inner {
+/*  padding-top: 4px;*/
+}
+
+.workspace-tabs {
+  background-color: var(--background-primary-alt);
+/*  margin-top: 4px;*/
+}
+
+.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.side-dock-actions {
+  display: flex;
+  flex-direction: column;
+  top: 25vh;
+/*  height: 80vh !important; */
+  background-color: var(--background-primary) !important;
+  border-top-right-radius: var(--radiusL) !important;
+  border-bottom-right-radius: var(--radiusL) !important;
+  padding: 6px !important;
+  margin-top: 2em !important;
+}
+
+.side-dock-actions svg {
+  width: 20px;
+  height: 20px;
+}
+
+/*.side-dock-settings {
+  background-color: var(--background-primary) !important;
+  border-top-right-radius: var(--radiusL);
+  border-bottom-right-radius: var(--radiusL);
+  padding: 4px;
+  margin-bottom: 2em !important;
+}
+
+.side-dock-settings svg {
+  width: 20px;
+  height: 20px;
+}*/
+
+/* Make the container a flex container in column direction */
+.side-dock-actions {
+  display: flex;
+  flex-direction: column;
+  height: 86vh; 
+}
+
+/* Add margin-top auto to the last child to push it to the bottom */
+body:not(.is-mobile) .side-dock-actions .clickable-icon:nth-last-child(3) {
+    margin-top: auto;
+}
+
+body:not(.is-mobile) .side-dock-actions .clickable-icon:last-child {
+    margin-bottom: 1em;
+}
+
+body:not(.is-mobile) .workspace-ribbon {
+  padding: 0px !important;
+  background-color: var(--background-primary-alt);
+}
+
+body:not(.is-mobile) .workspace-tab-header-container {
+  background-color: var(--background-primary-alt);
+}
+
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  display: none;
+}
+
+.side-dock-settings {
+/*  display: none;*/
+ }
+
+/* Only .png images */
+.internal-embed[src$=".png"] img {
+  border: 10px solid var(--background-primary-alt);
+  border-radius: 20px;
+  margin-inline: auto;
+  display: block;
+}
+
+/* Only .svg images */
+/* My only SVGs are Excalidraw embeds */
+.internal-embed[src$=".svg"] img {
+  border: 5px solid var(--background-primary-alt);
+  border-radius: 20px;
+  margin-inline: auto;
+  display: block;
+}
+

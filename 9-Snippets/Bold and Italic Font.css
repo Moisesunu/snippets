@@ -1,0 +1,148 @@
+.inline-title {
+  color: hsla(
+    calc(var(--typ-accent-h) - 180),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    calc(var(--typ-accent-a) + 0%)
+  );
+  opacity: 70%;
+  margin-left: 30px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.HyperMD-list-line.HyperMD-list-line-1.HyperMD-task-line {
+  line-height: inherit;
+  text-align: left;
+}
+
+/* Change font and color of italic text */
+:not(.HyperMD-task-line) em,
+:not(.HyperMD-task-line) .cm-em {
+  font-family: "Recursive Sans Casual Static", serif !important;
+  font-feature-settings:
+    "zero",
+    "liga" 1,
+    "dlig" 1,
+    "ss12" 1,
+    "ss01" 0,
+    "pnum" 1,
+    "ss04" 1,
+    "ss03" 1 !important;
+  font-style: italic;
+  font-size: 1em;
+  color: hsla(
+    calc(var(--typ-accent-h) + 90),
+    calc(var(--typ-accent-s) + 10%),
+    calc(var(--typ-accent-l) + 10%),
+    1
+  ) !important;
+  text-shadow: 2px 2px 2px black;
+}
+
+/*Bold NOT in a task*/
+.cm-line:not(.HyperMD-task-line) strong,
+.cm-line:not(.HyperMD-task-line) .cm-strong {
+  font-size: 1.1em;
+  color: hsla(
+    calc(var(--typ-accent-h) + 25),
+    calc(var(--typ-accent-s) + 10%),
+    calc(var(--typ-accent-l) + 20%),
+    1
+  ) !important;
+  text-shadow: 2px 2px 2px black;
+}
+
+.HyperMD-task-line:has(strong, em) em,
+.HyperMD-task-line:has(.cm-strong, .cm-em) .cm-em {
+  color: peru !important;
+  font-size: 2em;
+}
+
+/* --- change font in Live Preview editing --- */
+.markdown-preview-view,
+.cm-s-obsidian {
+  /* No changes required here */
+}
+
+/*body:not(.native-scrollbars) ::-webkit-scrollbar {
+  background-color: hsla(
+    calc(var(--typ-accent-h) + 0),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    0.2
+  );
+  width: 10px;
+  height: 10px;
+}*/
+
+/* Apply a horizontal transformation to shift all elements with the 'HyperMD-codeblock' class to the right by 2em */
+.HyperMD-codeblock,
+[class^="language-"] {
+  transform: translateX(2em) !important;
+  width: 90%;
+}
+
+.HyperMD-list-line ~ .HyperMD-codeblock {
+  padding-left: 2em !important;
+  background-color: var(--background-primary-alt) !important;
+}
+
+.HyperMD-codeblock {
+  line-height: 1.4em !important;
+  border-right: 2px solid
+    hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 0%),
+      1
+    ) !important;
+  border-left: 2px solid
+    hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 0%),
+      1
+    ) !important;
+}
+
+.HyperMD-codeblock-bg {
+  background-color: hsla(
+    calc(var(--typ-accent-h) + 0),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    0.05
+  ) !important;
+}
+
+.HyperMD-codeblock-begin {
+  border-top: 2px solid
+    hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 0%),
+      1
+    ) !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.HyperMD-codeblock-end {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  border-bottom: 2px solid
+    hsla(
+      calc(var(--typ-accent-h) + 0),
+      calc(var(--typ-accent-s) + 0%),
+      calc(var(--typ-accent-l) + 0%),
+      1
+    ) !important;
+}
+
+.markdown-source-view.mod-cm6 .code-block-flair {
+  color: hsla(
+    calc(var(--typ-accent-h) - 180),
+    calc(var(--typ-accent-s) + 0%),
+    calc(var(--typ-accent-l) + 0%),
+    1
+  ) !important;
+}

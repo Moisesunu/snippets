@@ -1,0 +1,228 @@
+/* Dataview Lists and Tables */
+/*.block-language-dataview li {
+    border-radius: 10px;
+    font-size: 1em !important;
+    background-color: hsla(var(--hsl-accent-secondary-h), var(--hsl-accent-secondary-s), var(--darker-second-l-30), 0.7);
+    padding: 10px;
+    text-align: center;
+}*/
+
+.dataview.list-view-ul li:hover {
+    background-color: hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) - 30%), 1);
+}
+
+.dataview.list-view-ul li {
+
+    --color-start: hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) - 0%), 0.10);
+    --color-middle: hsla(calc(var(--typ-accent-h) + 30), var(--typ-accent-s), calc(var(--typ-accent-l) - 0%), 0.20);
+    --color-end: hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) - 0%), 0.10);
+
+    --start-percentage: 15%;
+    --middle-percentage: 30%;
+    --end-percentage: 85%;
+
+    border: 3px solid hsla(calc(var(--typ-accent-h) + 45), var(--typ-accent-s), calc(var(--typ-accent-l) - 0%), 0.5);
+
+    border-radius: 10px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            transparent 5%,
+            var(--color-start) 25%,
+            var(--color-middle) 50%,
+            var(--color-end) 75%,
+            transparent 95%,
+            transparent 100%);
+    text-align: center;
+    padding: 0.1em;
+}
+
+/* CSS Selector to target links in the specific dataview tables and remove text-decoration */
+.dataview.list-view-ul li span a {
+    /* Variables for colors and gradient stops */
+    font-family: "Rec Mono Duotone", monospace !important;
+    font-feature-settings: "zero", "liga"1, "ss12"1, "ss01"1, "pnum"1 !important;
+    font-size: 1em;
+    text-shadow: 2px 2px 4px black;
+    text-decoration: none;
+    color: hsla(calc(var(--typ-accent-h) + 180), calc(var(--typ-accent-s) + 30%), calc(var(--typ-accent-l) + 20%), 1);
+}
+
+
+/* Style for the parent element */
+.dataview.list-view-ul {
+    list-style: none !important;
+    padding-left: 4em;
+    padding-top: 1.5em;
+    padding-bottom: 2em;
+    /* font-family: "Rec Mono Duotone", monospace !important; */
+      /* font-feature-settings: "zero", "liga" 1, "ss12" 1, "ss01" 1, "pnum" 1 !important; */
+    font-weight: light !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+    gap: 1em;
+    width: 90%;
+    margin: 0.5em auto;
+    min-height: 3em;
+    border-bottom: 2px dotted var(--typ-accent);
+}
+
+/* Common styles for before and after pseudo-elements */
+.dataview.list-view-ul:before,
+.dataview.list-view-ul:after {
+    position: absolute;
+    left: 2%;
+}
+
+/* Style for displaying the '.' character */
+.dataview.list-view-ul:before {
+    content: "";
+    /* top: 26px; */
+    /* Use fixed pixel value instead of percentage */
+    /* -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-trees'%3E%3Cpath d='M10 10v.2A3 3 0 0 1 8.9 16v0H5v0h0a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z'/%3E%3Cpath d='M7 16v6'/%3E%3Cpath d='M13 19v3'/%3E%3Cpath d='M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5'/%3E%3C/svg%3E"); */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' width='52' height='52' viewBox='0 0 24 24'%3E%3Cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 16v-5.5C11 8.5 9.4 7 7.5 7m3.5 9H4v-5.5C4 8.5 5.6 7 7.5 7m3.5 9v4M7.5 7H14m0 0V4h2.5M14 7v3m-3.5 6H20v-6a3 3 0 0 0-3-3m-2 9v4m-8-6.5h1'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    background-color: hsl(var(--typ-accent-h), var(--typ-accent-s), var(--typ-accent-l));
+    padding: 1.8em;
+    margin-left: 1em;
+}
+
+/* Style for adding the dotted line */
+.dataview.list-view-ul:after {
+    content: "";
+    margin-top: 2.9em;
+    margin-left: 1.1em;
+    width: 2.5em;
+    border-bottom: 3px dotted hsl(calc(var(--typ-accent-h) + 90), var(--typ-accent-s), var(--typ-accent-l));
+}
+
+
+.dataview.list-view-ul:hover:before,
+.dataview.list-view-ul:hover:after {
+    filter: hue-rotate(90deg);
+}
+
+div.dataview-error-box {
+    visibility: hidden;
+}
+
+/* Parent element style, added for demonstration */
+div.dataview-error-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pseudo-element style */
+div.dataview-error-box::before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: visible;
+    content: ".";
+    background: linear-gradient(to right, 
+        hsl(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), var(--typ-accent-l)), 
+        hsl(calc(var(--typ-accent-h) + 45), var(--typ-accent-s), var(--typ-accent-l)), 
+        hsl(calc(var(--typ-accent-h) + 90), var(--typ-accent-s), var(--typ-accent-l)));
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-refresh-cw-off'%3E%3Cpath d='M21 8L18.74 5.74A9.75 9.75 0 0 0 12 3C11 3 10.03 3.16 9.13 3.47'/%3E%3Cpath d='M8 16H3v5'/%3E%3Cpath d='M3 12C3 9.51 4 7.26 5.64 5.64'/%3E%3Cpath d='m3 16 2.26 2.26A9.75 9.75 0 0 0 12 21c2.49 0 4.74-1 6.36-2.64'/%3E%3Cpath d='M21 12c0 1-.16 1.97-.47 2.87'/%3E%3Cpath d='M21 3v5h-5'/%3E%3Cpath d='M22 22 2 2'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    background-clip: text;
+    color: transparent;
+    width: 72px;
+    height: 72px;
+}
+
+.block-language-dataview:has(td) {
+    /* style to your heart's content */
+    font-family: "Rec Mono Duotone", monospace !important;
+    font-feature-settings: "zero", "liga"1, "ss12"1, "ss01"1, "pnum"1 !important;
+    font-size: 1em !important;
+}
+
+
+/* Dataview Tasks */
+/* Task Text */
+
+.cm-preview-code-block:has(.task-list-item) .task-list-item.plugin-tasks-list-item {
+    font-family: "Quicksand";
+    vertical-align: middle !important;
+    
+} 
+
+.cm-preview-code-block:has(.task-list-item) .task-list-item {
+    color: pink !important;
+} 
+
+.cm-preview-code-block:has(.task-list-item) .task-description {
+    color: lime;
+    margin-left: 0.5em;
+}
+
+/* Checkboxes */
+
+.cm-preview-code-block:has(.task-list-item) .task-list-item-checkbox {
+    width: 1.6em;
+    height: 1.6em;
+}
+
+/* Not Checked - checkbox*/
+.cm-preview-code-block:has(.task-list-item) .task-list-item-checkbox:not(:checked) {
+    border-color: pink !important;
+}
+
+/* Checked - checkbox*/
+.cm-preview-code-block:has(.task-list-item) .task-list-item-checkbox:is(:checked) {
+    border-color: orange !important;
+}
+
+/* Checked - checkmark */
+.cm-preview-code-block:has(.task-list-item) .task-list-item-checkbox::after {
+    background-color: cyan !important;
+}
+
+/* Tags */
+.cm-preview-code-block:has(.task-list-item) .tag {
+    background: var(--my-tag-background);
+    font-weight: bold;
+    border: var(--my-tag-border-width) solid var(--my-tag-border);
+    text-shadow: 2px 2px 2px black;
+    padding-top: 0;
+    padding-bottom: 0.05em;
+    font-size: 0.7em;
+    color: yellow;
+}
+
+
+/* Dataview Tables */
+
+/* Remove the border (my default tables have a border) */
+/* .block-language-dataview.node-insert-event > table {
+    border: 2px solid hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) + 0%), 1) !important;
+
+} */
+
+/* Header */
+/* .block-language-dataview .table-view-tr-header > th {
+    border-bottom: solid 4px hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) + 0%), 1) !important;
+    color: hsla(calc(var(--typ-accent-h) + 90), var(--typ-accent-s), calc(var(--typ-accent-l) + 20%), 1) !important;
+    background-color: hsla(calc(var(--typ-accent-h) + 90), var(--typ-accent-s), calc(var(--typ-accent-l) - 40%), 1) !important;
+    font-size: 0.9em !important;
+    text-align: center !important;
+    line-height: 2em !important;
+} */
+
+/* Odd number rows background */
+/* .block-language-dataview .table-view-tbody > tr:nth-child(odd) {
+    background-color: hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) - 40%), 1) !important;
+    color: hsla(calc(var(--typ-accent-h) + 0), var(--typ-accent-s), calc(var(--typ-accent-l) + 20%), 1) !important;
+  } */
+  
+  /* Even number rows background */
+/* .block-language-dataview .table-view-tbody > tr:nth-child(even) {
+    background-color: hsla(calc(var(--typ-accent-h) + 45), var(--typ-accent-s), calc(var(--typ-accent-l) - 40%), 1) !important;
+    color: hsla(calc(var(--typ-accent-h) + 45), var(--typ-accent-s), calc(var(--typ-accent-l) + 20%), 1) !important;
+} */
+
+/* .block-language-dataview .table-view-tbody > tr:hover {
+      font-weight: bold !important;
+      filter: hue-rotate(180deg) brightness(1.2) !important;
+} */
