@@ -1,0 +1,21 @@
+div.markdown-embed .markdown-preview-view h6 {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    margin: 0px;
+    display: none;
+}
+
+div.markdown-embed .markdown-preview-title h6 {
+    line-height: 18px;
+    height: 24px;
+    display: inline !important;
+}
+
+.markdown-preview-view .markdown-embed-content p:first-child {
+    margin: 0px;
+}
+
+div.markdown-embed-link {
+    visibility: hidden;
+}

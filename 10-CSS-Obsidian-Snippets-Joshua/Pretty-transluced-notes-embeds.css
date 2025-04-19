@@ -1,0 +1,20 @@
+/* Transluced notes embeds */
+
+.markdown-preview-view .markdown-embed {
+    padding: 0 calc(var(--nested-padding) / 2) 0 var(--nested-padding);
+}
+.markdown-embed-title {
+    line-height: 18px;
+    height: 24px;
+    display: none;
+}
+.markdown-embed .markdown-preview-sizer {
+    padding-left: 1em !important;
+    padding-top: .5em !important;
+    min-height: 0em !important;
+}
+.markdown-embed .markdown-preview-sizer:first-child ul {
+    margin-block-start: 2px;
+}
+.markdown-embed .markdown-preview-section:last-child p,
+.markdown-embed .markdown-preview-view
